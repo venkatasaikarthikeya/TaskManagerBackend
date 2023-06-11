@@ -32,6 +32,14 @@ public class Todo {
         this.subject = subject;
     }
 
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", subject='" + subject + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
