@@ -14,8 +14,9 @@ import jakarta.persistence.*;
 public class Todo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "todo_id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "todo_subject")
     private String subject;
@@ -27,7 +28,7 @@ public class Todo {
         this.subject = subject;
     }
 
-    public Todo(Integer id, String subject) {
+    public Todo(Long id, String subject) {
         this.id = id;
         this.subject = subject;
     }
@@ -40,11 +41,11 @@ public class Todo {
                 '}';
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

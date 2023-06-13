@@ -30,17 +30,17 @@ public class TodoRepository {
         return entityManager.merge(todo);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) throws IllegalArgumentException {
         Todo todoToBeDeleted = findById(id);
         entityManager.remove(todoToBeDeleted);
     }
 
-    public Todo findById(Integer id) {
+    public Todo findById(Long id) {
         return entityManager.find(Todo.class, id);
     }
 
     public List<Todo> fetchAllTodos() {
-        TypedQuery<Todo> namedQuery =entityManager.createNamedQuery("fetch_all_todos", Todo.class);
+        TypedQuery<Todo> namedQuery = entityManager.createNamedQuery("fetch_all_todos", Todo.class);
         return namedQuery.getResultList();
     }
 }
